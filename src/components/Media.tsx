@@ -9,12 +9,11 @@ export interface MediaProps {
 }
 
 const Media = (props: MediaProps) => {
-    const container = useRef<HTMLDivElement>(null)
+    const container = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        if(!container) {
-            return
-        }
+        if(!container.current) return;
+
         props.videoTrack?.play(container.current);
         return () => {
             props.videoTrack?.stop()
@@ -22,12 +21,13 @@ const Media = (props: MediaProps) => {
     }, [container, props.videoTrack])
 
     useEffect(() => {
-        if(!container) return;
-        props.audioTrack?.play(container.current);
+        if(props.audioTrack){
+            props.audioTrack?.play();
+        }
         return () => {
             props.audioTrack?.stop()
         }
-    }, [container, props.audioTrack])
+    }, [props.audioTrack]);
 
     return (
         <div ref={container} className="video" style={{ width: '300', height: '300'}}></div>

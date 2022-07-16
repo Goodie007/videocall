@@ -23,6 +23,7 @@ export default function useLivestream(client: IAgoraRTCClient | undefined)
     join: Function,
     remoteUsers: IAgoraRTCRemoteUser[],
 }
+{
 
 const [ localVideoTrack, setLocalVideoTrack ] = useState<ILocalVideoTrack | undefined>(undefined);
 const [ localAudioTrack, setLocalAudioTrack ] = useState<ILocalAudioTrack | undefined>(undefined);
@@ -114,6 +115,7 @@ return {
     remoteUsers
 }
 
-)
+
+}
 
 
