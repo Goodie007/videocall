@@ -30,7 +30,11 @@ const Media = (props: MediaProps) => {
     }, [props.audioTrack]);
 
     return (
-        <div ref={container} className="video" style={{ width: '300', height: '300'}}></div>
+        <div ref={container} className="video-player" style={{ 
+            width: '1200px', height: '800px',
+             backgroundColor: 'black',
+             marginLeft: '120px'
+            }}></div>
     )
 }
 
